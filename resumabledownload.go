@@ -316,16 +316,11 @@ func (p *para) resumableDownload() error {
 		fmt.Printf("\n%s\n\n", msg)
 		var input string
 		fmt.Printf("Do you start this download? [y or n] ... ")
-		if _, err := fmt.Scan(&input); err != nil {
+		res, err := v.resDownloadFileByAPIKey()
+		if err != nil {
 			return err
 		}
-		if input == "y" {
-			res, err := v.resDownloadFileByAPIKey()
-			if err != nil {
-				return err
-			}
-			return v.para.saveFile(res)
-		}
+		return v.para.saveFile(res)
 	} else {
 		fmt.Printf("\n%s\n", msg)
 	}
