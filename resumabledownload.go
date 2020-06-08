@@ -314,7 +314,6 @@ func (p *para) resumableDownload() error {
 	msg := v.getStatusMsg(fc, end)
 	if (!fc && !end) || (fc && !end) {
 		fmt.Printf("\n%s\n\n", msg)
-		var input string
 		fmt.Printf("Do you start this download? [y or n] ... ")
 		res, err := v.resDownloadFileByAPIKey()
 		if err != nil {
